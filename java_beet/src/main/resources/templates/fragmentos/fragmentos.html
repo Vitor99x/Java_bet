@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>APOSTAS</title>
+    <meta name="autor" content="Vitor Hugo">
+</head>
+<body>
+	<!--  th:fragment criando um fragmento  de cabelho da pagina  -->
+<header th:fragment="cabecalho">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/index}">
+    <img alt="Logotipo da Tigre JavaBet" th:src="@{/img/javabetTeste.png}" style="width: 50px;"/>
+    Apostas
+</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMobile" aria-controls="navMobile" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div id="navMobile" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav me-auto">
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CASSINO</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">BLACK-JACK</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ROLETA</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link btn-danger " href="#">FUTEBOL</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link btn-danger " href="#">CORRIDA DE CAVALO</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link btn-danger" href="#">TIGRINHO</a>
+                </li>
+                                
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> <!-- Usa bootstrap.bundle.min.js para incluir popper.js -->
+</body>
+</html>

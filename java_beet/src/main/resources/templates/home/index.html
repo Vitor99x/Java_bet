@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>APOSTAS</title>
+    <meta name="autor" content="Vitor Hugo">
+</head>
+<body>
+<!--  th:fragment chamando o cabelho da pagina  -->
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+<section class="center neo-section">
+	<div class="neo-container">
+	   <h1>Sistema de Apostas<h1>
+	
+		<div class="botoes">
+	
+		<div class="wm">
+    		<a class="btn btn-primary" th:href="@{/apostadores/inserirApostador}">CADASTRAR APOSTADOR</a>
+		</div>
+		
+		<div class="wm">
+			<a class="btn btn-primary" style="background-color: green;" th:href="@{/apostadores/Apostadores-adicionados}" >LISTAR APOSTADORES</a>
+		</div>
+		
+		
+		
+	<div class="clear"></div>
+	</div>
+	</div>
+</section>
+
+
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> <!-- Usa bootstrap.bundle.min.js para incluir popper.js -->
+</body>
+</html>

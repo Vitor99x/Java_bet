@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Criar Aposta</title>
+</head>
+<body>
+
+<h2>Criar Aposta</h2>
+
+<form th:action="@{/apostas/inserirAposta}" th:object="${aposta}" method="post">
+    <!-- Escolher o Apostador -->
+    <label for="apostador">Escolha o Apostador:</label>
+    <select name="apostadorId" id="apostador" required>
+        <option value="" disabled selected>Selecione um Apostador</option>
+        <option th:each="apostador : ${apostadores}" 
+                th:value="${apostador.id}" 
+                th:text="${apostador.nome}">Apostador</option>
+    </select>
+    
+    <br><br>
+    
+    <!-- Tipo de Aposta -->
+    <label for="tipoAposta">Tipo de Aposta:</label>
+    <input type="text" th:field="*{tipoAposta}" placeholder="Ex: Futebol" required/>
+    
+    <br><br>
+    
+    <!-- Quantidade de Apostas -->
+    <label for="quantidadeAposta">Quantidade de Apostas:</label>
+    <input type="number" th:field="*{quantidadeAposta}" required/>
+    
+    <br><br>
+    
+    <!-- Valor da Aposta -->
+    <label for="valorAposta">Valor da Aposta:</label>
+    <input type="number" th:field="*{valorAposta}" required step="0.01" min="0"/>
+    
+    <br><br>
+
+    <!-- Data da Aposta -->
+    <label for="dataFormatada">Data da Aposta:</label>
+    <input type="date" th:field="*{dataFormatada}" required/>
+    
+    <br><br>
+    
+    <!-- Botão de Envio -->
+    <button type="submit">Criar Aposta</button>
+</form>
+
+<br>
+<!-- Exibição de erros de validação -->
+<div th:if="${#fields.hasErrors()}">
+    <p>Erro ao criar a aposta.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Inserir Apostador</title>
+    <meta name="autor" content="Vitor Hugo">
+</head>
+<body>
+    <!-- Incluindo o fragmento de cabeçalho -->
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container mt-5">
+        <h1>Inserir Apostador</h1>
+        <hr>
+
+        <!-- Formulário para inserir apostador -->
+        <form method="post" action="inserirApostador" th:object="${apostador}">
+            
+            <!-- Nome do Apostador -->
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-3">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" class="form-control" th:field="*{nome}">
+                </div>
+            </div>
+
+            <!-- E-mail -->
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-3">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" class="form-control" th:field="*{email}">
+                </div>
+            </div>
+
+            <!-- Senha -->
+            <div class="row">
+                <div class="col-md-5 form-group offset-md-3">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" class="form-control" th:field="*{senha}">
+                </div>
+            </div>
+
+            <!-- Botão de Enviar -->
+            <div class="row mt-4">
+                <div class="col-md-5 offset-md-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

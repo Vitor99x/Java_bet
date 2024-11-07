@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Criar Aposta</title>
+    <meta name="autor" content="Vitor Hugo">
+</head>
+<body>
+    <!-- Incluindo o fragmento de cabeçalho -->
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container mt-5">
+        <h1>Criar Aposta</h1>
+
+        <!-- Exibindo mensagens de sucesso ou erro -->
+        <div th:if="${successMessage}" th:text="${successMessage}" class="alert alert-success"></div>
+        <div th:if="${errorMessage}" th:text="${errorMessage}" class="alert alert-danger"></div>
+
+        <hr>
+
+        <!-- Formulário para criar aposta -->
+        <form action="/apostas/adicionarAposta" th:object="${aposta}" method="post">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="tipoAposta" class="form-label">Tipo da Aposta:</label>
+            <input type="text" id="tipoAposta" th:field="*{tipoAposta}" class="form-control" placeholder="Tipo da Aposta" required />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="quantidadeAposta" class="form-label">Quantidade de Aposta:</label>
+            <input type="number" id="quantidadeAposta" th:field="*{quantidadeAposta}" class="form-control" placeholder="Quantidade" required />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="valorAposta" class="form-label">Valor da Aposta:</label>
+            <input type="number" id="valorAposta" th:field="*{valorAposta}" class="form-control" placeholder="Valor da Aposta" required step="0.01" min="0"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="apostador" class="form-label">Escolha um Apostador:</label>
+            <select id="apostador" th:field="*{usuario.id}" class="form-select" required>
+                <option value="" disabled selected>Selecione um apostador</option>
+                <option th:each="apostador : ${apostadores}" th:value="${apostador.id}" th:text="${apostador.nome}"></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="apostasStatus" class="form-label">Status da Aposta:</label>
+            <select id="apostasStatus" th:field="*{apostasStatus}" class="form-select" required>
+                <option value="" disabled selected>Selecione um Status</option>
+                <option th:each="status : ${T(com.java.bet.entidades.enums.ApostasStatus).values()}"
+                        th:value="${status}" th:text="${status}">Status</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-primary">Criar Aposta</button>
+        </div>
+    </div>
+</form>
+
+        <br/>
+        <a href="/apostas/listarApostas" class="btn btn-secondary">Voltar para a lista de Apostas</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Atualiza o ID do apostador selecionado
+        document.getElementById('apostador').addEventListener('change', function() {
+            document.getElementById('apostadorId').textContent = this.value;
+        });
+
+        // Atualiza o status da aposta selecionado
+        document.getElementById('apostasStatus').addEventListener('change', function() {
+            document.getElementById('apostasStatusDisplay').textContent = this.options[this.selectedIndex].text;
+        });
+    </script>
+</body>
+</html>

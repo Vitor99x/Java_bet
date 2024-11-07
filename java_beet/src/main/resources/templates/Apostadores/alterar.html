@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>INSERIR APOSTADOR</title>
+    <meta name="autor" content="Vitor Hugo">
+</head>
+<body>
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container" style="margin-top: 20px;">
+        <h4>Alterar Apostador</h4>
+        <hr>
+        
+        <form method="POST" action="/apostadores/alterar" th:object="${apostador}">
+
+        <input type="hidden" th:field="*{id}">
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label>Nome:</label>
+                    <input class="form-control" th:field="*{nome}" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" th:field="*{email}" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label>Senha:</label>
+                    
+                    <input  type="password" class="form-control" th:field="*{senha}" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

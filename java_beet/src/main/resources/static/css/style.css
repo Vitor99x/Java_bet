@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/* Reseta as margens e paddings e aplica box-sizing */
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+nav { 
+    height: 60px; 
+    background-color: #343a40; /* Cor de fundo para a navbar */
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Estilizando links */
+a {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: green; /* Cor do texto dos links */
+}
+
+a:hover {
+    color: orange; /* Cor do texto ao passar o mouse */
+}
+
+.nav-link:hover{
+	color:orange;
+}
+
+.neo-section{
+	min-height: 700px;
+	background-size: cover !important;
+	background-position: center;
+	background-repeat: no-repeat;
+	width:100%;
+	padding: 30px;
+	position: relative;
+	
+}
+
+.wm{
+	width: 50%;
+	float: left;
+}
+
+.neo-container{
+	max-width: 524px;
+	padding:2% 2%;
+	margin: 0 auto;
+}
+
+.clear{
+	clear: both;
+}
+
+.center{
+	text-align: center;
+}
+
+
+
+
