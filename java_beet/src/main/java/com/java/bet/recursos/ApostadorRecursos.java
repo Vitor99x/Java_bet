@@ -30,7 +30,7 @@ public class ApostadorRecursos {
         return mv;
     }
 
-    @PostMapping("/inserirApostador")  // Corrigir o caminho do POST para corresponder ao GET
+    @PostMapping("/inserirApostador")  
     public ModelAndView adicionarApostador(Apostador obj, RedirectAttributes redirectAttributes) {
         ModelAndView mv = new ModelAndView();
         try {
